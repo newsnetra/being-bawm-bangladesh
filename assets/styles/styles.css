@@ -425,197 +425,95 @@
 
     }
 
+.csv-table {
+  width: 70vw;
+  margin: 3% auto;
+  --accent: #f2c94c;
+  font-family: "chandler-42-regular", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  color: rgba(255, 255, 255, .85);
+  
+}
 
+.csv-table__frame {
+  border: 2px solid var(--accent);
+  overflow: hidden;
+  
+}
 
-    .csv-table {
-      width: 70vw;
-      margin: 3% auto;
-      --accent: #f2c94c;
-      font-family: "chandler-42-regular", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-      color: rgba(255, 255, 255, .85);
-    }
+.csv-table__table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+}
 
-    .csv-table__frame {
-      border: 2px solid var(--accent);
-      overflow: hidden;
-    }
+.csv-table__table th,
+.csv-table__table td {
+  padding: 18px 22px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
 
-    .csv-table__table {
-      width: 100%;
-      border-collapse: collapse;
-      background: transparent;
-    }
+.csv-table__table thead th {
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: rgba(255, 255, 255, .75);
+}
 
-    .csv-table__table th,
-    .csv-table__table td {
-      padding: 18px 22px;
-      text-align: left;
-      border-bottom: 1px solid rgba(255, 255, 255, .12);
-    }
+.csv-table__table tbody tr:last-child td {
+  border-bottom: 0;
+}
 
-    .csv-table__table thead th {
-      font-weight: 600;
-      letter-spacing: .04em;
-      color: rgba(255, 255, 255, .75);
-    }
+/* Gender badge next to Name */
+.csv-table__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;           /* little radius */
+  background: #f2c94c;
+  color: #000;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1;
+}
 
-    .csv-table__table tbody tr:last-child td {
-      border-bottom: 0;
-    }
+/* Pagination */
+.csv-table__pager {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 0 0;
+  user-select: none;
+}
 
-    /* Pagination */
-    .csv-table__pager {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      padding: 18px 0 0;
-      user-select: none;
-    }
+.csv-table__nav,
+.csv-table__page {
+  background: transparent;
+  border: 0;
+  color: rgba(255, 255, 255, .6);
+  font: inherit;
+  padding: 6px 8px;
+  cursor: pointer;
+}
 
-    .csv-table__nav,
-    .csv-table__page {
-      background: transparent;
-      border: 0;
-      color: rgba(255, 255, 255, .6);
-      font: inherit;
-      padding: 6px 8px;
-      cursor: pointer;
-    }
+.csv-table__nav:disabled {
+  opacity: .25;
+  cursor: default;
+}
 
-    .csv-table__nav:disabled {
-      opacity: .25;
-      cursor: default;
-    }
+.csv-table__page.is-active {
+  color: var(--accent);
+  
+}
 
-    .csv-table__page.is-active {
-      color: var(--accent);
-    }
+.csv-table__ellipsis {
+  color: rgba(255, 255, 255, .35);
+  padding: 0 4px;
+}
 
-    .csv-table__ellipsis {
-      color: rgba(255, 255, 255, .35);
-      padding: 0 4px;
-    }
-
-
-
-    footer {
-      background: #f2c94c;
-      color: #000;
-      padding: 40px;
-      margin: auto;
-      display: flex;
-      justify-content: center;
-    }
-
-    #footer-inner {
-      max-width: 618px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      text-align: left;
-      margin-bottom: 20px;
-    }
-
-    .logo img {
-      display: block;
-      margin-bottom: 10px;
-      max-width: 150px;
-      height: 100%;
-      margin: auto;
-    }
-
-
-
-    .logo p {
-      font-size: 18px;
-      font-weight: 400;
-      opacity: 0.9;
-      color: black;
-      margin: 10px;
-      text-align: center;
-      font-family: "chandler-42-regular", monospace;
-
-    }
-
-    .lists {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      border-top: 1px solid rgba(255, 255, 255, 0.3);
-      padding-top: 30px;
-      margin-top: 30px;
-      color: black;
-      font-family: "utopia-std", monospace;
-      font-weight: 400;
-    }
-
-    .list {
-      flex: 1;
-      min-width: 200px;
-      text-align: center;
-
-    }
-
-    .list h3 {
-      font-size: 16px;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .list ul {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 15px;
-    }
-
-    .list ul li {
-      margin-bottom: 5px;
-    }
-
-
-    .list ul li a {
-      color: black;
-      text-decoration: none;
-      font-size: 14px;
-      opacity: 0.8;
-      transition: opacity 0.3s ease;
-      background: none;
-    }
-
-    .list ul li a:hover {
-      opacity: 1;
-    }
-
-    .social-icons a {
-      background: none;
-
-    }
-
-    .social-icons-m a {
-      background: none;
-    }
-
-    .credits {
-      background-color: transparent;
-      padding: 3rem 0rem;
-    }
-
-    .credits p {
-      font-family: "chandler-42-regular", monospace;
-      font-style: italic;
-      font-size: 15px;
-      line-height: 1.6;
-      color: #999;
-      max-width: 550px;
-      margin: auto;
-      padding: 1rem;
-      border-top: 1px solid #333;
-      text-align: center;
-
-    }
 
 
      /* Mobile: avoid fixed background jank */
