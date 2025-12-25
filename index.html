@@ -368,20 +368,26 @@
         </p>
       </section>
 
-      <section class="csv-table" data-csv="./assets/data/data.csv">
-        <div class="csv-table__frame">
-          <table class="csv-table__table" aria-label="CSV table">
-            <thead></thead>
-            <tbody></tbody>
-          </table>
-        </div>
+<section class="csv-table" data-csv="./assets/data/data.csv">
+  <div class="csv-table__frame">
+    <div class="csv-table__swipe-hint" aria-hidden="true">
+      <span class="csv-table__swipe-icon">⇆</span>
+      <span class="csv-table__swipe-text">swipe</span>
+    </div>
 
-        <nav class="csv-table__pager" aria-label="Pagination">
-          <button class="csv-table__nav" data-nav="prev" type="button" aria-label="Previous page">‹</button>
-          <div class="csv-table__pages" role="list"></div>
-          <button class="csv-table__nav" data-nav="next" type="button" aria-label="Next page">›</button>
-        </nav>
-      </section>
+    <table class="csv-table__table" aria-label="CSV table">
+      <thead></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <nav class="csv-table__pager" aria-label="Pagination">
+    <button class="csv-table__nav" data-nav="prev" type="button" aria-label="Previous page">‹</button>
+    <div class="csv-table__pages" role="list"></div>
+    <button class="csv-table__nav" data-nav="next" type="button" aria-label="Next page">›</button>
+  </nav>
+</section>
+
 
 
 
