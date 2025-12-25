@@ -171,9 +171,25 @@
     }
 
 
- a {color: #f2c94c;}
-   
 
+    a {
+    color: unset;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+}
+
+a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 3px;
+    background: #f2c94c;
+    /* This creates the rugged/organic look */
+    clip-path: polygon(0% 20%, 15% 0%, 30% 25%, 50% 10%, 70% 30%, 85% 5%, 100% 20%, 100% 80%, 80% 95%, 50% 75%, 20% 100%, 0% 80%);
+}
 
     /* ---------- HERO CONTAINER ---------- */
 
