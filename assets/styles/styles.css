@@ -171,22 +171,11 @@
     }
 
 
-a {
-    color: unset;
-    text-decoration: none;
-    /* Remove the old border */
-    border-bottom: none;
-    
-    /* Add space between text and line */
-    padding-bottom: 4px;
+a { color: unset; text-decoration: none; /* Remove the old border */ border-bottom: none; /* Add space between text and line */ padding-bottom: 4px; /* The magic SVG */ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='8' viewBox='0 0 200 8'%3E%3Cpath d='M2,6 C50,3 150,3 198,6' fill='none' stroke='%23f2c94c' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M4,7 C60,5 140,5 196,7' fill='none' stroke='%23f2c94c' stroke-width='1' stroke-linecap='round' opacity='0.7'/%3E%3C/svg%3E"); /* Ensure it stretches the whole width of the link */ background-size: 100% 8px; background-repeat: no-repeat; background-position: bottom left; }
 
-    /* The magic SVG */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='8' viewBox='0 0 200 8'%3E%3Cpath d='M2,6 C50,3 150,3 198,6' fill='none' stroke='%23f2c94c' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M4,7 C60,5 140,5 196,7' fill='none' stroke='%23f2c94c' stroke-width='1' stroke-linecap='round' opacity='0.7'/%3E%3C/svg%3E");
-    
-    /* Ensure it stretches the whole width of the link */
-    background-size: 100% 8px;
-    background-repeat: no-repeat;
-    background-position: bottom left;
+    a:hover {
+  background-position: bottom 1px left;
+  filter: contrast(1.1) saturate(1.05);
 }
 
     /* ---------- HERO CONTAINER ---------- */
