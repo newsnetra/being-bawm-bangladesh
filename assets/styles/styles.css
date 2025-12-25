@@ -789,81 +789,18 @@
       text-align: center;
 
     }
-
 @media (max-width: 1024px) {
-    .csv-table {
-        width: 100vw;
-      }
+  .csv-table {
+    width: 100vw;
+  }
 
-      .csv-table__table th, .csv-table__table td {
-    padding: 5px
-      }
-    }
+  .csv-table__table th,
+  .csv-table__table td {
+    padding: 5px;
+  }
+}
 
-    /* Mobile: avoid fixed background jank */
-    @media (max-width: 820px) {
-      body {
-        background-attachment: scroll;
-      }
-
-      .split-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-title {
-        font-size: 65px;
-
-      }
-    }
-
-
-
-
-    /* one per screen at <=450px */
-    @media (max-width:540px) {
-      .sldr {
-        --gap: 0px;
-        padding-left: unset;
-      }
-
-      .sldr__slide {
-        flex-basis: 100%;
-      }
-
-      .hero-title {
-        font-size: 35px;
-      }
-
-      article {
-        padding-top: 20%;
-      }
-
-      h2,
-      article p {
-        margin: 15px;
-      }
-
-      
-    }
-
-
-    @media (max-width: 440px) {
-      article {
-        padding-top: 70%;
-      }
-
-      .netra-logo {
-        margin-left: 10px;
-      }
-    }
-
-
-
-/* Scroll hint fades + swipe pill (mobile only) */
 @media (max-width: 900px) {
-  
-
-  /* edge fades to imply horizontal scroll */
   .csv-table__frame::before,
   .csv-table__frame::after {
     content: "";
@@ -886,7 +823,6 @@
     background: linear-gradient(to left, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
   }
 
-  /* swipe hint pill */
   .csv-table__swipe-hint {
     position: absolute;
     top: 50%;
@@ -919,18 +855,66 @@
   }
 
   @keyframes csvSwipePulse {
-    0%, 100% { transform: translate(-2px, -50%); opacity: 0.7; }
+    0%,
+    100% { transform: translate(-2px, -50%); opacity: 0.7; }
     50% { transform: translate(2px, -50%); opacity: 1; }
   }
 }
 
-/* Prefer-reduced-motion friendly */
+@media (max-width: 820px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .split-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    font-size: 65px;
+  }
+}
+
+@media (max-width: 540px) {
+  .sldr {
+    --gap: 0px;
+    padding-left: unset;
+  }
+
+  .sldr__slide {
+    flex-basis: 100%;
+  }
+
+  .hero-title {
+    font-size: 35px;
+  }
+
+  article {
+    padding-top: 20%;
+  }
+
+  h2,
+  article p {
+    margin: 15px;
+  }
+}
+
+@media (max-width: 440px) {
+  article {
+    padding-top: 70%;
+  }
+
+  .netra-logo {
+    margin-left: 10px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .csv-table__frame {
     scroll-behavior: auto;
   }
+
   .csv-table__swipe-hint {
     animation: none;
   }
 }
-
