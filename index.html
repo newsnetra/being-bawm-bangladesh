@@ -330,20 +330,20 @@
         </p>
       </section>
 
-<section class="csv-table" data-csv="./assets/data/data.csv">
-  <div class="csv-table__frame">
-    <table class="csv-table__table" aria-label="CSV table">
-      <thead></thead>
-      <tbody></tbody>
-    </table>
-  </div>
+      <section class="csv-table" data-csv="./assets/data/data.csv">
+        <div class="csv-table__frame">
+          <table class="csv-table__table" aria-label="CSV table">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
 
-  <nav class="csv-table__pager" aria-label="Pagination">
-    <button class="csv-table__nav" data-nav="prev" type="button" aria-label="Previous page">‹</button>
-    <div class="csv-table__pages" role="list"></div>
-    <button class="csv-table__nav" data-nav="next" type="button" aria-label="Next page">›</button>
-  </nav>
-</section>
+        <nav class="csv-table__pager" aria-label="Pagination">
+          <button class="csv-table__nav" data-nav="prev" type="button" aria-label="Previous page">‹</button>
+          <div class="csv-table__pages" role="list"></div>
+          <button class="csv-table__nav" data-nav="next" type="button" aria-label="Next page">›</button>
+        </nav>
+      </section>
 
 
 
@@ -557,8 +557,11 @@
         <p>Her mother said, &ldquo;It seems her only crime is the name she carries: Bawm. ●</p>
 
         <div class="credits">
-          <p><a href="https://netra.news/authors/marzia/">Marzia Hashmi Momo</a> is a staff reporter at Netra News.
-            Along with <a href="https://netra.news/authors/denim/">Denim Chakma</a>, a freelance correspondent, she travelled to remote villages in Bandarban and reviewed hundreds of pages of documents to report the story. <a href="https://netra.news/authors/subinoy/">Subinoy Eron</a> designed the webpage and created the
+          <p><a href="https://netra.news/authors/marzia/">Marzia Hashmi Momo</a>, a staff reporter, and <a
+              href="https://netra.news/authors/denim/">Denim Chakma</a>, a staff photographer, travelled to remote
+            villages in Bandarban, and reviewed many pages of
+            documents to report the story. <a href="https://netra.news/authors/subinoy/">Subinoy Mustofi Eron</a>
+            designed the webpage and created the
             graphic illustrations.</p>
         </div>
 
@@ -728,97 +731,96 @@
   </script>
 
 
-<script>
-  (() => {
-    const root = document.querySelector('.csv-table');
-    if (!root) return;
+  <script>
+    (() => {
+      const root = document.querySelector('.csv-table');
+      if (!root) return;
 
-    const csvUrl = root.getAttribute('data-csv');
-    const thead = root.querySelector('thead');
-    const tbody = root.querySelector('tbody');
-    const pagesEl = root.querySelector('.csv-table__pages');
-    const prevBtn = root.querySelector('[data-nav="prev"]');
-    const nextBtn = root.querySelector('[data-nav="next"]');
+      const csvUrl = root.getAttribute('data-csv');
+      const thead = root.querySelector('thead');
+      const tbody = root.querySelector('tbody');
+      const pagesEl = root.querySelector('.csv-table__pages');
+      const prevBtn = root.querySelector('[data-nav="prev"]');
+      const nextBtn = root.querySelector('[data-nav="next"]');
 
-    const pageSize = 8;
-    const maxButtons = 7;
+      const pageSize = 8;
+      const maxButtons = 7;
 
-    let headers = [];
-    let rows = [];
-    let page = 1;
+      let headers = [];
+      let rows = [];
+      let page = 1;
 
-    // indices
-    let genderIdx = -1;
-    let nameIdx = -1;
-    let statusIdx = -1;
+      // indices
+      let genderIdx = -1;
+      let nameIdx = -1;
+      let statusIdx = -1;
 
-    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, m => ({
-      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-    }[m]));
+      const esc = (s) => String(s ?? '').replace(/[&<>"']/g, m => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[m]));
 
-    function parseCSV(text) {
-      const out = [];
-      let row = [], field = '', inQuotes = false;
+      function parseCSV(text) {
+        const out = [];
+        let row = [], field = '', inQuotes = false;
 
-      for (let i = 0; i < text.length; i++) {
-        const c = text[i], n = text[i + 1];
+        for (let i = 0; i < text.length; i++) {
+          const c = text[i], n = text[i + 1];
 
-        if (c === '"' && inQuotes && n === '"') { field += '"'; i++; continue; }
-        if (c === '"') { inQuotes = !inQuotes; continue; }
+          if (c === '"' && inQuotes && n === '"') { field += '"'; i++; continue; }
+          if (c === '"') { inQuotes = !inQuotes; continue; }
 
-        if (!inQuotes && (c === ',' || c === '\n' || c === '\r')) {
-          if (c === '\r' && n === '\n') { /* swallow */ }
-          row.push(field);
-          field = '';
+          if (!inQuotes && (c === ',' || c === '\n' || c === '\r')) {
+            if (c === '\r' && n === '\n') { /* swallow */ }
+            row.push(field);
+            field = '';
 
-          if (c === '\n' || c === '\r') {
-            if (row.length > 1 || row[0] !== '') out.push(row);
-            row = [];
+            if (c === '\n' || c === '\r') {
+              if (row.length > 1 || row[0] !== '') out.push(row);
+              row = [];
+            }
+            continue;
           }
-          continue;
+          field += c;
         }
-        field += c;
+        row.push(field);
+        if (row.length > 1 || row[0] !== '') out.push(row);
+        return out;
       }
-      row.push(field);
-      if (row.length > 1 || row[0] !== '') out.push(row);
-      return out;
-    }
 
-    function norm(s){ return String(s ?? '').trim().toLowerCase(); }
+      function norm(s) { return String(s ?? '').trim().toLowerCase(); }
 
-    function computeVisibleHeaders() {
-      // compute indices from original headers
-      genderIdx = headers.findIndex(h => norm(h) === 'gender');
-      nameIdx   = headers.findIndex(h => norm(h) === 'name');
-      statusIdx = headers.findIndex(h => norm(h) === 'status');
+      function computeVisibleHeaders() {
+        // compute indices from original headers
+        genderIdx = headers.findIndex(h => norm(h) === 'gender');
+        nameIdx = headers.findIndex(h => norm(h) === 'name');
+        statusIdx = headers.findIndex(h => norm(h) === 'status');
 
-      // headers excluding Gender column
-      return headers.filter((_, i) => i !== genderIdx);
-    }
+        // headers excluding Gender column
+        return headers.filter((_, i) => i !== genderIdx);
+      }
 
-    function rowPriority(r) {
-      const g = norm(r[genderIdx]);
-      const st = norm(r[statusIdx]);
-      return (g === 'f' && st === 'imprisoned') ? 0 : 1;
-    }
+      function rowPriority(r) {
+        const g = norm(r[genderIdx]);
+        const st = norm(r[statusIdx]);
+        return (g === 'f' && st === 'imprisoned') ? 0 : 1;
+      }
 
-    function renderTable() {
-      const visibleHeaders = computeVisibleHeaders();
+      function renderTable() {
+        const visibleHeaders = computeVisibleHeaders();
 
-      const totalPages = Math.max(1, Math.ceil(rows.length / pageSize));
-      page = Math.min(Math.max(1, page), totalPages);
+        const totalPages = Math.max(1, Math.ceil(rows.length / pageSize));
+        page = Math.min(Math.max(1, page), totalPages);
 
-      // header (Gender removed)
-      thead.innerHTML = `<tr>${visibleHeaders.map(h => `<th>${esc(h)}</th>`).join('')}</tr>`;
+        // header (Gender removed)
+        thead.innerHTML = `<tr>${visibleHeaders.map(h => `<th>${esc(h)}</th>`).join('')}</tr>`;
 
-      // body
-      const start = (page - 1) * pageSize;
-      const slice = rows.slice(start, start + pageSize);
+        // body
+        const start = (page - 1) * pageSize;
+        const slice = rows.slice(start, start + pageSize);
 
-      tbody.innerHTML = slice.map(r => {
-        // render cells excluding Gender; inject badge next to Name
-        return `<tr>${
-          headers.map((h, i) => {
+        tbody.innerHTML = slice.map(r => {
+          // render cells excluding Gender; inject badge next to Name
+          return `<tr>${headers.map((h, i) => {
             if (i === genderIdx) return ''; // skip Gender col
 
             const cell = r[i] ?? '';
@@ -830,73 +832,73 @@
             }
             return `<td>${esc(cell)}</td>`;
           }).join('')
-        }</tr>`;
-      }).join('');
+            }</tr>`;
+        }).join('');
 
-      // pager
-      prevBtn.disabled = page === 1;
-      nextBtn.disabled = page === totalPages;
+        // pager
+        prevBtn.disabled = page === 1;
+        nextBtn.disabled = page === totalPages;
 
-      const mkBtn = (p, label = p) =>
-        `<button type="button" class="csv-table__page ${p === page ? 'is-active' : ''}" data-page="${p}">${label}</button>`;
+        const mkBtn = (p, label = p) =>
+          `<button type="button" class="csv-table__page ${p === page ? 'is-active' : ''}" data-page="${p}">${label}</button>`;
 
-      const half = Math.floor((maxButtons - 3) / 2);
-      let startP = Math.max(2, page - half);
-      let endP = Math.min(totalPages - 1, page + half);
+        const half = Math.floor((maxButtons - 3) / 2);
+        let startP = Math.max(2, page - half);
+        let endP = Math.min(totalPages - 1, page + half);
 
-      if (page <= 1 + half) { startP = 2; endP = Math.min(totalPages - 1, 1 + 2 * half); }
-      if (page >= totalPages - half) { endP = totalPages - 1; startP = Math.max(2, totalPages - 2 * half); }
+        if (page <= 1 + half) { startP = 2; endP = Math.min(totalPages - 1, 1 + 2 * half); }
+        if (page >= totalPages - half) { endP = totalPages - 1; startP = Math.max(2, totalPages - 2 * half); }
 
-      let html = mkBtn(1);
+        let html = mkBtn(1);
 
-      if (startP > 2) html += `<span class="csv-table__ellipsis">…</span>`;
-      for (let p = startP; p <= endP; p++) html += mkBtn(p);
-      if (endP < totalPages - 1) html += `<span class="csv-table__ellipsis">…</span>`;
+        if (startP > 2) html += `<span class="csv-table__ellipsis">…</span>`;
+        for (let p = startP; p <= endP; p++) html += mkBtn(p);
+        if (endP < totalPages - 1) html += `<span class="csv-table__ellipsis">…</span>`;
 
-      if (totalPages > 1) html += mkBtn(totalPages);
+        if (totalPages > 1) html += mkBtn(totalPages);
 
-      pagesEl.innerHTML = html;
-    }
+        pagesEl.innerHTML = html;
+      }
 
-    pagesEl.addEventListener('click', (e) => {
-      const btn = e.target.closest('[data-page]');
-      if (!btn) return;
-      page = Number(btn.getAttribute('data-page'));
-      renderTable();
-    });
-
-    prevBtn.addEventListener('click', () => { page -= 1; renderTable(); });
-    nextBtn.addEventListener('click', () => { page += 1; renderTable(); });
-
-    fetch(csvUrl, { cache: 'no-store' })
-      .then(r => {
-        if (!r.ok) throw new Error(`Failed to load CSV: ${r.status}`);
-        return r.text();
-      })
-      .then(text => {
-        const data = parseCSV(text.trim());
-        headers = data.shift() || [];
-        rows = data;
-
-        // compute indices once, then stable sort to bring F+Imprisoned first
-        computeVisibleHeaders();
-        if (genderIdx !== -1 && statusIdx !== -1) {
-          rows = rows
-            .map((r, idx) => ({ r, idx, p: rowPriority(r) }))
-            .sort((a, b) => (a.p - b.p) || (a.idx - b.idx))
-            .map(x => x.r);
-        }
-
-        page = 1;
+      pagesEl.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-page]');
+        if (!btn) return;
+        page = Number(btn.getAttribute('data-page'));
         renderTable();
-      })
-      .catch(err => {
-        thead.innerHTML = '';
-        tbody.innerHTML = `<tr><td style="padding:16px">Could not load CSV.</td></tr>`;
-        console.error(err);
       });
-  })();
-</script>
+
+      prevBtn.addEventListener('click', () => { page -= 1; renderTable(); });
+      nextBtn.addEventListener('click', () => { page += 1; renderTable(); });
+
+      fetch(csvUrl, { cache: 'no-store' })
+        .then(r => {
+          if (!r.ok) throw new Error(`Failed to load CSV: ${r.status}`);
+          return r.text();
+        })
+        .then(text => {
+          const data = parseCSV(text.trim());
+          headers = data.shift() || [];
+          rows = data;
+
+          // compute indices once, then stable sort to bring F+Imprisoned first
+          computeVisibleHeaders();
+          if (genderIdx !== -1 && statusIdx !== -1) {
+            rows = rows
+              .map((r, idx) => ({ r, idx, p: rowPriority(r) }))
+              .sort((a, b) => (a.p - b.p) || (a.idx - b.idx))
+              .map(x => x.r);
+          }
+
+          page = 1;
+          renderTable();
+        })
+        .catch(err => {
+          thead.innerHTML = '';
+          tbody.innerHTML = `<tr><td style="padding:16px">Could not load CSV.</td></tr>`;
+          console.error(err);
+        });
+    })();
+  </script>
 
 
 </body>
