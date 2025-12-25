@@ -171,25 +171,23 @@
     }
 
 
+a {
+    color: unset;
+    text-decoration: none;
+    /* Remove the old border */
+    border-bottom: none;
+    
+    /* Add space between text and line */
+    padding-bottom: 4px;
 
-    a {
-      color: unset;
-      text-decoration: none;
-      position: relative;
-      display: inline-block;
-    }
-
-    a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 100%;
-      height: 3px;
-      background: #f2c94c;
-      /* This creates the rugged/organic look */
-      clip-path: polygon(0% 20%, 15% 0%, 30% 25%, 50% 10%, 70% 30%, 85% 5%, 100% 20%, 100% 80%, 80% 95%, 50% 75%, 20% 100%, 0% 80%);
-    }
+    /* The magic SVG */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='8' viewBox='0 0 200 8'%3E%3Cpath d='M2,6 C50,3 150,3 198,6' fill='none' stroke='%23f2c94c' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M4,7 C60,5 140,5 196,7' fill='none' stroke='%23f2c94c' stroke-width='1' stroke-linecap='round' opacity='0.7'/%3E%3C/svg%3E");
+    
+    /* Ensure it stretches the whole width of the link */
+    background-size: 100% 8px;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+}
 
     /* ---------- HERO CONTAINER ---------- */
 
