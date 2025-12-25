@@ -200,23 +200,25 @@
       margin-top: 0;
     }
 
-    a {
-      color: unset;
-      text-decoration: none;
-      padding-bottom: 6px;
+a {
+  display: inline-block;
+  color: unset;
+  text-decoration: none;
+  padding-bottom: 6px;
 
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='10' viewBox='0 0 220 10'%3E%3Cpath d='M2,6 L40,7 L80,5 L120,7 L160,5 L218,6' fill='none' stroke='%23f2c94c' stroke-width='2' stroke-linecap='butt' stroke-dasharray='6 3'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='10' viewBox='0 0 220 10'%3E%3Cpath d='M2,6 L40,7 L80,5 L120,7 L160,5 L218,6' fill='none' stroke='%23f2c94c' stroke-width='2' stroke-linecap='butt' stroke-dasharray='6 3'/%3E%3C/svg%3E");
+  background-size: 100% 8px;
+  background-repeat: no-repeat;
+  background-position: bottom left;
 
-      background-size: 100% 8px;
-      background-repeat: no-repeat;
-      background-position: bottom left;
-    }
+  transition: transform 120ms ease, filter 120ms ease;
+}
 
-    a:hover {
-      filter: contrast(1.2);
-      transform: translateY(-0.5px);
+a:hover {
+  filter: contrast(1.2);
+  transform: translateY(-0.5px);
+}
 
-    }
 
 
 
