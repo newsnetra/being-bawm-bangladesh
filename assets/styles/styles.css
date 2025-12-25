@@ -16,52 +16,70 @@
       margin: 0 auto;
     }
 
+
     .header-bar {
       position: sticky;
       top: 0;
       height: 35px;
       width: 100%;
       background: #f2c94c;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       border-bottom: 1px solid #333;
       z-index: 9999;
-      justify-content: space-between;
-      align-items: center;
-    }
 
-    .netra-logo {
       display: flex;
       align-items: center;
+      /* true vertical centring */
+      justify-content: space-between;
+      /* left + right */
+    }
+
+    /* Left logo block */
+    .netra-logo {
       margin-left: 20px;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
     }
 
     .netra-logo a {
       background: none;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      line-height: 1;
     }
 
     .nav-logo {
       height: 20px;
+      display: block;
+      /* removes baseline offset */
     }
 
+    /* Right icons block */
     .social-icons {
+      margin-right: 20px;
+      height: 100%;
+
       display: flex;
       align-items: center;
       gap: 5px;
-      margin-right: 20px;
     }
 
+    /* Optional mobile variant kept consistent */
     .social-icons-m {
-      display: flex;
-      align-items: center;
-      gap: 5px;
       margin-right: 20px;
       margin-top: 20px;
+
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
 
     .twitter,
-    .facebook {
+    .facebook,
+    .twitter-share,
+    .facebook-share {
       display: flex;
       align-items: center;
     }
@@ -69,14 +87,26 @@
     .twitter-share,
     .facebook-share {
       list-style: none;
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      line-height: 1;
     }
 
     .twitter-logo,
     .fb-logo {
       height: 20px;
+      display: block;
+      /* removes baseline offset */
+      margin: 0 3px;
       color: #000;
-      margin: 0px 3px;
     }
+
 
     section[aria-label="Story"] {
       max-width: 618px;
@@ -170,13 +200,25 @@
       margin-top: 0;
     }
 
+    a {
+      color: unset;
+      text-decoration: none;
+      padding-bottom: 6px;
 
-a { color: unset; text-decoration: none; /* Remove the old border */ border-bottom: none; /* Add space between text and line */ padding-bottom: 4px; /* The magic SVG */ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='8' viewBox='0 0 200 8'%3E%3Cpath d='M2,6 C50,3 150,3 198,6' fill='none' stroke='%23f2c94c' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M4,7 C60,5 140,5 196,7' fill='none' stroke='%23f2c94c' stroke-width='1' stroke-linecap='round' opacity='0.7'/%3E%3C/svg%3E"); /* Ensure it stretches the whole width of the link */ background-size: 100% 8px; background-repeat: no-repeat; background-position: bottom left; }
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='10' viewBox='0 0 220 10'%3E%3Cpath d='M2,6 L40,7 L80,5 L120,7 L160,5 L218,6' fill='none' stroke='%23f2c94c' stroke-width='2' stroke-linecap='butt' stroke-dasharray='6 3'/%3E%3C/svg%3E");
+
+      background-size: 100% 8px;
+      background-repeat: no-repeat;
+      background-position: bottom left;
+    }
 
     a:hover {
-  background-position: bottom 1px left;
-  filter: contrast(1.1) saturate(1.05);
-}
+      filter: contrast(1.2);
+      transform: translateY(-0.5px);
+
+    }
+
+
 
     /* ---------- HERO CONTAINER ---------- */
 
