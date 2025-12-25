@@ -16,6 +16,68 @@
       margin: 0 auto;
     }
 
+    .header-bar {
+      position: sticky;
+      top: 0;
+      height: 35px;
+      width: 100%;
+      background: #f2c94c;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #333;
+      z-index: 9999;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .netra-logo {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+    }
+
+    .netra-logo a {
+      background: none;
+    }
+
+    .nav-logo {
+      height: 20px;
+    }
+
+    .social-icons {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-right: 20px;
+    }
+
+    .social-icons-m {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-right: 20px;
+      margin-top: 20px;
+    }
+
+    .twitter,
+    .facebook {
+      display: flex;
+      align-items: center;
+    }
+
+    .twitter-share,
+    .facebook-share {
+      list-style: none;
+    }
+
+    .twitter-logo,
+    .fb-logo {
+      height: 20px;
+      color: #000;
+      margin: 0px 3px;
+    }
+
     section[aria-label="Story"] {
       max-width: 618px;
       /* or any width you want */
@@ -109,7 +171,7 @@
     }
 
 
-
+ a {color: #f2c94c;}
    
 
 
@@ -160,7 +222,8 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       font-weight: bold;
-      font-size: 95px;
+      font-size: 85px;
+      letter-spacing: normal;
 
     }
 
@@ -184,7 +247,7 @@
       max-width: 618px;
       margin: 0 auto 1.5rem;
       font-family: "chandler-42-regular", Georgia, serif;
-      font-size: 0.95rem;
+      font-size: 1rem;
       line-height: 1.55;
       opacity: 0.9;
       font-style: oblique;
@@ -194,10 +257,15 @@
 
     .hero-byline {
       font-family: "chandler-42-regular", Georgia, serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
+      font-size: 0.95rem;
+      
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    .author a {
+      color: #fff;
       opacity: 0.7;
-      font-weight: normal;
     }
 
     h2 {
