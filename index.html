@@ -518,39 +518,29 @@
       </section>
 
 
-      <section class="split-wrap">
-        <div class="split-left">
-          <p class="eyebrow">eikhane ki holud dile baje lagbe?</p>
+      <section class="scrolly">
+  <!-- Sticky image column -->
+  <div class="scrolly__media">
+    <img src="./assets/images/permission 1.webp" alt="" class="scrolly__img is-active" data-step="1">
+    <img src="./assets/images/permission letter 2.webp" alt="" class="scrolly__img" data-step="2">
+  </div>
 
-          <h2>Kichu Ekta Description blah blah</h2>
+  <!-- Scrolling text column -->
+  <div class="scrolly__text">
+    <div class="scrolly__step" data-step="1">
+      <p>Text for image one.</p>
+    </div>
 
-          <p>
-            To retrieve basic necessities like rice, oil, and vegetables, Bawm
-            residents must first secure a written permit from the commander of the
-            nearest army camp. This control is absolute. The right to earn a living is
-            also curtailed, with villagers requiring the same permission simply to
-            sell their products at the nearby market.
-          </p>
-        </div>
-
-        <div class="split-right">
-          <p>
-            in this part three documents of permission or something. they will appear
-            one after another.
-          </p>
-
-          <p>
-            similar to bodycount maps
-          </p>
-
-          <p>
-            on the left, there will be english description of each document.
-          </p>
-        </div>
-      </section>
+    <div class="scrolly__step" data-step="2">
+      <p>Text for image two.</p>
+    </div>
+  </div>
+</section>
 
 
       <section aria-label="Story">
+
+
 
 
         <h2>Ink and anger</h2>
@@ -963,6 +953,38 @@
         });
     })();
   </script>
+
+
+<script>
+  const steps = document.querySelectorAll('.scrolly__step');
+  const images = document.querySelectorAll('.scrolly__img');
+
+  // Safety: show first image
+  images.forEach((img, i) => img.classList.toggle('is-active', i === 0));
+
+  const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      const step = entry.target.dataset.step;
+      images.forEach(img => {
+        img.classList.toggle('is-active', img.dataset.step === step);
+      });
+    });
+  },
+  {
+    root: null,
+    rootMargin: '-50% 0px -50% 0px',  // 🔑 center-based trigger
+    threshold: 0
+  }
+);
+
+
+  steps.forEach(step => observer.observe(step));
+</script>
+
+
 
 
 </body>
