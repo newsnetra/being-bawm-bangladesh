@@ -37,14 +37,19 @@
 
   <!-- Optional: basic preconnect for performance -->
   <link rel="preload" href="./assets/styles/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="./assets/styles/styles.css"></noscript>
+  <noscript>
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+  </noscript>
 
 
-<link rel="preconnect" href="https://use.typekit.net" crossorigin>
-<link rel="preconnect" href="https://p.typekit.net" crossorigin>
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+  <link rel="preconnect" href="https://p.typekit.net" crossorigin>
 
-<link rel="preload" as="style" href="https://use.typekit.net/ree7ihd.css" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://use.typekit.net/ree7ihd.css"></noscript>
+  <link rel="preload" as="style" href="https://use.typekit.net/ree7ihd.css"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://use.typekit.net/ree7ihd.css">
+  </noscript>
 
 
   <!-- Structured data (JSON-LD): Article + Organization -->
@@ -176,11 +181,12 @@
 
         <p class="hero-byline">
 
-          <span class="author">
-            <a href="https://netra.news/authors/marzia/">Marzia Hashmi Momo</a> and
-            <a href="https://netra.news/authors/denim/">Denim Chakma</a>
+          <span class="author">By
+            <a href="https://netra.news/authors/marzia/">Marzia Hashmi Momo</a>,
+            <a href="https://netra.news/authors/denim/">Denim Chakma</a> and
+            <a href="https://netra.news/authors/subinoy/">Subinoy Mustofi Eron</a>
           </span>
-          -
+
           <time datetime="2025-12-30">December 30th 2025</time>
 
         </p>
@@ -213,8 +219,14 @@
       </section>
 
       <section class="full-hero slant">
-        <img src="./assets/images/first feature photo.webp" alt="" class="full-hero__img">
+        <figure class="full-hero__figure">
+          <img src="./assets/images/first feature photo.webp" alt="" class="full-hero__img" />
+          <figcaption class="full-hero__caption">
+            Caption text goes here.
+          </figcaption>
+        </figure>
       </section>
+
 
       <section aria-label="Story">
         <p>This was not an isolated incident rather a window into a wider crisis of displacement and fear gripping the
@@ -243,35 +255,41 @@
           came on the heels of the robbery of two banks and hostage-taking of a bank manager by the armed group
           Kuki-Chin National Front (KNF) on April 4th 2024.</p>
 
-              </section>
-
-                <!-- 16:9 auto + manual slider (2-up on desktop, 1-up ≤450px) -->
-      <section class="sldr" aria-label="Image slider">
-        <div class="sldr__frame">
-          <div class="sldr__viewport">
-            <div class="sldr__track">
-              <figure class="sldr__slide"><img src="./assets/images/sliders/1/1 slider 1.webp" alt=""></figure>
-              <figure class="sldr__slide"><img src="./assets/images/sliders/1/2 slider 1.webp" alt=""></figure>
-              <figure class="sldr__slide"><img src="./assets/images/sliders/1/3 slider 1.webp" alt=""></figure>
-              <figure class="sldr__slide"><img src="./assets/images/sliders/1/4 slider 1.webp" alt=""></figure>
-              <figure class="sldr__slide"><img src="./assets/images/sliders/1/5 slider 1.webp" alt=""></figure>
-            </div>
-          </div>
-
-          <!-- ✅ buttons live outside the scrolling area -->
-          <button class="sldr__btn sldr__btn--prev" type="button" aria-label="Previous">
-            <svg viewBox="0 0 24 24">
-              <path d="M14.5 5.5 8 12l6.5 6.5" />
-            </svg>
-          </button>
-          <button class="sldr__btn sldr__btn--next" type="button" aria-label="Next">
-            <svg viewBox="0 0 24 24">
-              <path d="M9.5 18.5 16 12 9.5 5.5" />
-            </svg>
-          </button>
-        </div>
-
       </section>
+
+      <!-- 16:9 auto + manual slider (2-up on desktop, 1-up ≤450px) -->
+
+      <figure class="sldr-wrap">
+        <section class="sldr" aria-label="Image slider">
+          <div class="sldr__frame">
+            <div class="sldr__viewport">
+              <div class="sldr__track">
+                <figure class="sldr__slide"><img src="./assets/images/sliders/1/1 slider 1.webp" alt=""></figure>
+                <figure class="sldr__slide"><img src="./assets/images/sliders/1/2 slider 1.webp" alt=""></figure>
+                <figure class="sldr__slide"><img src="./assets/images/sliders/1/3 slider 1.webp" alt=""></figure>
+                <figure class="sldr__slide"><img src="./assets/images/sliders/1/4 slider 1.webp" alt=""></figure>
+                <figure class="sldr__slide"><img src="./assets/images/sliders/1/5 slider 1.webp" alt=""></figure>
+              </div>
+            </div>
+
+            <button class="sldr__btn sldr__btn--prev" type="button" aria-label="Previous">
+              <svg viewBox="0 0 24 24">
+                <path d="M14.5 5.5 8 12l6.5 6.5" />
+              </svg>
+            </button>
+            <button class="sldr__btn sldr__btn--next" type="button" aria-label="Next">
+              <svg viewBox="0 0 24 24">
+                <path d="M9.5 18.5 16 12 9.5 5.5" />
+              </svg>
+            </button>
+          </div>
+        </section>
+
+        <figcaption class="photo-quote__caption">
+          Caption text describing the image sequence goes here.
+        </figcaption>
+      </figure>
+
 
 
 
@@ -304,17 +322,24 @@
       </section>
 
 
-<section class="photo-prints">
-  <figure class="photo-prints__item"><img src="./assets/images/portraits/akem.webp" alt=""></figure>
-  <figure class="photo-prints__item"><img src="./assets/images/portraits/jesy.webp" alt=""></figure>
-  <figure class="photo-prints__item"><img src="./assets/images/portraits/lal tlanh.webp" alt=""></figure>
-  <figure class="photo-prints__item"><img src="./assets/images/portraits/lal rin.webp" alt=""></figure>
+      <figure class="photo-prints-wrap">
+        <section class="photo-prints" aria-label="Portrait photographs">
+          <figure class="photo-prints__item"><img src="./assets/images/portraits/akem.webp" alt=""></figure>
+          <figure class="photo-prints__item"><img src="./assets/images/portraits/jesy.webp" alt=""></figure>
+          <figure class="photo-prints__item"><img src="./assets/images/portraits/lal tlanh.webp" alt=""></figure>
+          <figure class="photo-prints__item"><img src="./assets/images/portraits/lal rin.webp" alt=""></figure>
 
-  <figure class="photo-prints__item"><img src="./assets/images/portraits/tina.webp" alt=""></figure>
-  <figure class="photo-prints__item"><img src="./assets/images/portraits/partha.webp" alt=""></figure>
-  <figure class="photo-prints__item"><img src="./assets/images/portraits/nem pem.webp" alt=""></figure>
-  <figure class="photo-prints__item"><img src="./assets/images/portraits/melory.webp" alt=""></figure>
-</section>
+          <figure class="photo-prints__item"><img src="./assets/images/portraits/tina.webp" alt=""></figure>
+          <figure class="photo-prints__item"><img src="./assets/images/portraits/partha.webp" alt=""></figure>
+          <figure class="photo-prints__item"><img src="./assets/images/portraits/nem pem.webp" alt=""></figure>
+          <figure class="photo-prints__item"><img src="./assets/images/portraits/melory.webp" alt=""></figure>
+        </section>
+
+        <figcaption class="photo-quote__caption">
+          Caption text for the portrait series goes here.
+        </figcaption>
+      </figure>
+
 
 
       <section aria-label="Story">
@@ -372,24 +397,22 @@
 
 
 
-     <section class="photo-quote">
-  <img
-    src="./assets/images/Tinas Mom 2 copy.webp"
-    alt="Zing Nun Mawi holding Tina's photograph"
-    class="photo-quote__img"
-  />
+      <section class="photo-quote">
+        <img src="./assets/images/Tinas Mom 2 copy.webp" alt="Zing Nun Mawi holding Tina's photograph"
+          class="photo-quote__img" />
 
-  <div class="photo-quote__overlay">
-    <blockquote class="photo-quote__text">
-      Managing the case involves a lot of money. We could not directly appoint an advocate for Tina. We are learning that the people for whom the human rights organisations are working for are being released.
-    </blockquote>
+        <div class="photo-quote__overlay">
+          <blockquote class="photo-quote__text">
+            Managing the case involves a lot of money. We could not directly appoint an advocate for Tina. We are
+            learning that the people for whom the human rights organisations are working for are being released.
+          </blockquote>
 
-    <div class="photo-quote__credit">
-      <strong>ZING NUN MAWI</strong><br>
-      <span>Tina’s mother</span>
-    </div>
-  </div>
-</section>
+          <div class="photo-quote__credit">
+            <strong>ZING NUN MAWI</strong><br>
+            <span>Tina’s mother</span>
+          </div>
+        </div>
+      </section>
 
 
       <section aria-label="Story">
@@ -397,11 +420,19 @@
           Bawm community died while imprisoned at the Chattogram Central Jail.</p>
 
 
-         <section class="photo-prints photo-prints--trio">
-  <figure class="photo-prints__item"><img src="./assets/images/portraits/bhan lal copy.webp" alt=""></figure>
-  <figure class="photo-prints__item"><img src="./assets/images/portraits/lal thelong copy.webp" alt=""></figure>
-  <figure class="photo-prints__item"><img src="./assets/images/portraits/lal sangmoy.webp" alt=""></figure>
-</section>
+        <figure>
+          <section class="photo-prints photo-prints--trio">
+            <figure class="photo-prints__item"><img src="./assets/images/portraits/bhan lal copy.webp" alt=""></figure>
+            <figure class="photo-prints__item"><img src="./assets/images/portraits/lal thelong copy.webp" alt="">
+            </figure>
+            <figure class="photo-prints__item"><img src="./assets/images/portraits/lal sangmoy.webp" alt=""></figure>
+          </section>
+
+          <figcaption class="photo-quote__caption">
+            caption text
+          </figcaption>
+        </figure>
+
 
 
         <p>Fighting this legal battle is financially challenging. Several have sold their ancestral land. Zing Nun Mawi
@@ -471,19 +502,16 @@
           son, when conflict erupted between the KNF &mdash; a separatist organisation advocating for the autonomy of
           the Kuki-Chin people in the Chittagong Hill Tracts &mdash; and the Bangladesh Army.&nbsp;</p>
 
-         
-         <figure class="photo-quote">
-  <img
-    src="./assets/images/refuge card copy.webp"
-    alt="A temporary identity card issued by Indian authorities to a Bawm refugee in Mizoram"
-    class="photo-quote__img"
-    loading="lazy"
-  />
 
-  <figcaption class="photo-quote__caption">
-      Temporary certificate of identity issued to a Bawm refugee by Indian authorities in Mizoram.
-  </figcaption>
-</figure>
+        <figure class="photo-quote">
+          <img src="./assets/images/refuge card copy.webp"
+            alt="A temporary identity card issued by Indian authorities to a Bawm refugee in Mizoram"
+            class="photo-quote__img" loading="lazy" />
+
+          <figcaption class="photo-quote__caption">
+            Temporary certificate of identity issued to a Bawm refugee by Indian authorities in Mizoram.
+          </figcaption>
+        </figure>
 
 
 
@@ -513,10 +541,16 @@
       </section>
 
 
-      <section class="full-hero">
-        <img src="./assets/images/mapss copy.webp" alt="" class="full-hero__img">
-      </section>
+      <figure class="photo-quote">
+        <img src="./assets/images/mapss copy.webp"
+          alt="A map showing the distance to a Bawm refugee camp in Mizoram, India, where hundreds fled from their homes in Bangladesh."
+          class="photo-quote__img" loading="lazy" />
 
+        <figcaption class="photo-quote__caption">
+          A map showing the distance to a Bawm refugee camp in Mizoram, India, where hundreds fled from their homes in
+          Bangladesh.
+        </figcaption>
+      </figure>
 
       <section aria-label="Story">
 
@@ -553,38 +587,42 @@
 
       </section>
 
-      <!-- 16:9 auto + manual slider (2-up on desktop, 1-up ≤450px) -->
-      <section class="sldr" aria-label="Image slider">
-        <div class="sldr__frame">
-          <div class="sldr__viewport">
-            <div class="sldr__track">
-              <figure class="sldr__slide"><img src="./assets/images/sliders/2/1 slider 2.webp" alt=""></figure>
-              <figure class="sldr__slide"><img src="./assets/images/sliders/2/2 slider 2.webp" alt=""></figure>
-              <figure class="sldr__slide"><img src="./assets/images/sliders/2/3 slider 2.webp" alt=""></figure>
-              <figure class="sldr__slide"><img src="./assets/images/sliders/2/4 slider 2.webp" alt=""></figure>
+      <figure>
+        <section class="sldr" aria-label="Image slider">
+          <div class="sldr__frame">
+            <div class="sldr__viewport">
+              <div class="sldr__track">
+                <figure class="sldr__slide"><img src="./assets/images/sliders/2/1 slider 2.webp" alt=""></figure>
+                <figure class="sldr__slide"><img src="./assets/images/sliders/2/2 slider 2.webp" alt=""></figure>
+                <figure class="sldr__slide"><img src="./assets/images/sliders/2/3 slider 2.webp" alt=""></figure>
+                <figure class="sldr__slide"><img src="./assets/images/sliders/2/4 slider 2.webp" alt=""></figure>
+              </div>
             </div>
+
+            <button class="sldr__btn sldr__btn--prev" type="button" aria-label="Previous">
+              <svg viewBox="0 0 24 24">
+                <path d="M14.5 5.5 8 12l6.5 6.5" />
+              </svg>
+            </button>
+            <button class="sldr__btn sldr__btn--next" type="button" aria-label="Next">
+              <svg viewBox="0 0 24 24">
+                <path d="M9.5 18.5 16 12 9.5 5.5" />
+              </svg>
+            </button>
           </div>
+        </section>
 
-          <!-- ✅ buttons live outside the scrolling area -->
-          <button class="sldr__btn sldr__btn--prev" type="button" aria-label="Previous">
-            <svg viewBox="0 0 24 24">
-              <path d="M14.5 5.5 8 12l6.5 6.5" />
-            </svg>
-          </button>
-          <button class="sldr__btn sldr__btn--next" type="button" aria-label="Next">
-            <svg viewBox="0 0 24 24">
-              <path d="M9.5 18.5 16 12 9.5 5.5" />
-            </svg>
-          </button>
-        </div>
+        <figcaption class="photo-quote__caption">
+          caption text
+        </figcaption>
+      </figure>
 
-      </section>
 
 
 
 
       <section aria-label="Story">
-          
+
 
         <p>The exodus of the Bawm community began in November 2022, when refugees first arrived at
           Chamdur &lsquo;P&rsquo; village in the Lawngtlai district. Over the following two years, residents from
@@ -618,23 +656,23 @@
 
 
       <section class="scrolly">
-  <!-- Sticky image column -->
-  <div class="scrolly__media">
-    <img src="./assets/images/permission 1.webp" alt="" class="scrolly__img is-active" data-step="1">
-    <img src="./assets/images/permission letter 2.webp" alt="" class="scrolly__img" data-step="2">
-  </div>
+        <!-- Sticky image column -->
+        <div class="scrolly__media">
+          <img src="./assets/images/permission 1.webp" alt="" class="scrolly__img is-active" data-step="1">
+          <img src="./assets/images/permission letter 2.webp" alt="" class="scrolly__img" data-step="2">
+        </div>
 
-  <!-- Scrolling text column -->
-  <div class="scrolly__text">
-    <div class="scrolly__step" data-step="1">
-      <p>Text for image one.</p>
-    </div>
+        <!-- Scrolling text column -->
+        <div class="scrolly__text">
+          <div class="scrolly__step" data-step="1">
+            <p>Text for image one.</p>
+          </div>
 
-    <div class="scrolly__step" data-step="2">
-      <p>Text for image two.</p>
-    </div>
-  </div>
-</section>
+          <div class="scrolly__step" data-step="2">
+            <p>Text for image two.</p>
+          </div>
+        </div>
+      </section>
 
 
       <section aria-label="Story">
@@ -658,30 +696,36 @@
       </section>
 
       <!-- 16:9 auto + manual slider (2-up on desktop, 1-up ≤450px) -->
-      <section class="sldr" aria-label="Image slider">
-        <div class="sldr__frame">
-          <div class="sldr__viewport">
-            <div class="sldr__track">
-              <figure class="sldr__slide"><img src="./assets/images/sliders/3/1 slider 3.jpeg" alt=""></figure>
-              <figure class="sldr__slide"><img src="./assets/images/sliders/3/2 slider 3.jpeg" alt=""></figure>
-              <figure class="sldr__slide"><img src="./assets/images/sliders/3/3 slider 3.jpeg" alt=""></figure>
+
+      <figure>
+        <section class="sldr" aria-label="Image slider">
+          <div class="sldr__frame">
+            <div class="sldr__viewport">
+              <div class="sldr__track">
+                <figure class="sldr__slide"><img src="./assets/images/sliders/3/1 slider 3.jpeg" alt=""></figure>
+                <figure class="sldr__slide"><img src="./assets/images/sliders/3/2 slider 3.jpeg" alt=""></figure>
+                <figure class="sldr__slide"><img src="./assets/images/sliders/3/3 slider 3.jpeg" alt=""></figure>
+              </div>
             </div>
+
+            <button class="sldr__btn sldr__btn--prev" type="button" aria-label="Previous">
+              <svg viewBox="0 0 24 24">
+                <path d="M14.5 5.5 8 12l6.5 6.5" />
+              </svg>
+            </button>
+            <button class="sldr__btn sldr__btn--next" type="button" aria-label="Next">
+              <svg viewBox="0 0 24 24">
+                <path d="M9.5 18.5 16 12 9.5 5.5" />
+              </svg>
+            </button>
           </div>
+        </section>
 
-          <!-- ✅ buttons live outside the scrolling area -->
-          <button class="sldr__btn sldr__btn--prev" type="button" aria-label="Previous">
-            <svg viewBox="0 0 24 24">
-              <path d="M14.5 5.5 8 12l6.5 6.5" />
-            </svg>
-          </button>
-          <button class="sldr__btn sldr__btn--next" type="button" aria-label="Next">
-            <svg viewBox="0 0 24 24">
-              <path d="M9.5 18.5 16 12 9.5 5.5" />
-            </svg>
-          </button>
-        </div>
+        <figcaption class="photo-quote__caption">
+          caption text
+        </figcaption>
+      </figure>
 
-      </section>
 
 
 
@@ -796,86 +840,86 @@
   </footer>
 
   <script>
-  (() => {
-    const roots = document.querySelectorAll('.sldr');
-    if (!roots.length) return;
+    (() => {
+      const roots = document.querySelectorAll('.sldr');
+      if (!roots.length) return;
 
-    roots.forEach((root) => {
-      const viewport = root.querySelector('.sldr__viewport');
-      const track = root.querySelector('.sldr__track');
-      const prevBtn = root.querySelector('.sldr__btn--prev');
-      const nextBtn = root.querySelector('.sldr__btn--next');
+      roots.forEach((root) => {
+        const viewport = root.querySelector('.sldr__viewport');
+        const track = root.querySelector('.sldr__track');
+        const prevBtn = root.querySelector('.sldr__btn--prev');
+        const nextBtn = root.querySelector('.sldr__btn--next');
 
-      if (!viewport || !track || !prevBtn || !nextBtn) return;
+        if (!viewport || !track || !prevBtn || !nextBtn) return;
 
-      const originals = Array.from(track.children);
-      const n = originals.length;
+        const originals = Array.from(track.children);
+        const n = originals.length;
 
-      // clone first 2 slides for seamless looping (desktop shows 2)
-      const cloneCount = Math.min(2, n);
-      for (let i = 0; i < cloneCount; i++) {
-        const c = originals[i].cloneNode(true);
-        c.setAttribute('aria-hidden', 'true');
-        track.appendChild(c);
-      }
-
-      let index = 0;
-      let timer = null;
-      const AUTOPLAY_MS = 2200;
-
-      const slides = () => Array.from(track.children);
-
-      function go(i, behavior = 'smooth') {
-        const s = slides();
-        const clamped = Math.max(0, Math.min(i, s.length - 1));
-        index = clamped;
-        viewport.scrollTo({ left: s[index].offsetLeft, behavior });
-      }
-
-      function next() { go(index + 1); }
-      function prev() { go(index - 1); }
-
-      function start() {
-        stop();
-        timer = setInterval(next, AUTOPLAY_MS);
-      }
-      function stop() {
-        if (timer) clearInterval(timer);
-        timer = null;
-      }
-
-      viewport.addEventListener('scroll', () => {
-        const s = slides();
-        if (!s[index]) return;
-
-        if (index >= n) {
-          requestAnimationFrame(() => {
-            index = 0;
-            viewport.scrollTo({ left: s[index].offsetLeft, behavior: 'auto' });
-          });
+        // clone first 2 slides for seamless looping (desktop shows 2)
+        const cloneCount = Math.min(2, n);
+        for (let i = 0; i < cloneCount; i++) {
+          const c = originals[i].cloneNode(true);
+          c.setAttribute('aria-hidden', 'true');
+          track.appendChild(c);
         }
-      }, { passive: true });
 
-      nextBtn.addEventListener('click', () => { stop(); next(); start(); });
-      prevBtn.addEventListener('click', () => { stop(); prev(); start(); });
+        let index = 0;
+        let timer = null;
+        const AUTOPLAY_MS = 2200;
 
-      viewport.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') { e.preventDefault(); stop(); next(); start(); }
-        if (e.key === 'ArrowLeft') { e.preventDefault(); stop(); prev(); start(); }
+        const slides = () => Array.from(track.children);
+
+        function go(i, behavior = 'smooth') {
+          const s = slides();
+          const clamped = Math.max(0, Math.min(i, s.length - 1));
+          index = clamped;
+          viewport.scrollTo({ left: s[index].offsetLeft, behavior });
+        }
+
+        function next() { go(index + 1); }
+        function prev() { go(index - 1); }
+
+        function start() {
+          stop();
+          timer = setInterval(next, AUTOPLAY_MS);
+        }
+        function stop() {
+          if (timer) clearInterval(timer);
+          timer = null;
+        }
+
+        viewport.addEventListener('scroll', () => {
+          const s = slides();
+          if (!s[index]) return;
+
+          if (index >= n) {
+            requestAnimationFrame(() => {
+              index = 0;
+              viewport.scrollTo({ left: s[index].offsetLeft, behavior: 'auto' });
+            });
+          }
+        }, { passive: true });
+
+        nextBtn.addEventListener('click', () => { stop(); next(); start(); });
+        prevBtn.addEventListener('click', () => { stop(); prev(); start(); });
+
+        viewport.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowRight') { e.preventDefault(); stop(); next(); start(); }
+          if (e.key === 'ArrowLeft') { e.preventDefault(); stop(); prev(); start(); }
+        });
+
+        root.addEventListener('mouseenter', stop);
+        root.addEventListener('mouseleave', start);
+        root.addEventListener('focusin', stop);
+        root.addEventListener('focusout', start);
+
+        window.addEventListener('resize', () => go(index, 'auto'));
+
+        go(0, 'auto');
+        start();
       });
-
-      root.addEventListener('mouseenter', stop);
-      root.addEventListener('mouseleave', start);
-      root.addEventListener('focusin', stop);
-      root.addEventListener('focusout', start);
-
-      window.addEventListener('resize', () => go(index, 'auto'));
-
-      go(0, 'auto');
-      start();
-    });
-  })();
-</script>
+    })();
+  </script>
 
 
 
@@ -1049,34 +1093,34 @@
   </script>
 
 
-<script>
-  const steps = document.querySelectorAll('.scrolly__step');
-  const images = document.querySelectorAll('.scrolly__img');
+  <script>
+    const steps = document.querySelectorAll('.scrolly__step');
+    const images = document.querySelectorAll('.scrolly__img');
 
-  // Safety: show first image
-  images.forEach((img, i) => img.classList.toggle('is-active', i === 0));
+    // Safety: show first image
+    images.forEach((img, i) => img.classList.toggle('is-active', i === 0));
 
-  const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
 
-      const step = entry.target.dataset.step;
-      images.forEach(img => {
-        img.classList.toggle('is-active', img.dataset.step === step);
-      });
-    });
-  },
-  {
-    root: null,
-    rootMargin: '-50% 0px -50% 0px',  // 🔑 center-based trigger
-    threshold: 0
-  }
-);
+          const step = entry.target.dataset.step;
+          images.forEach(img => {
+            img.classList.toggle('is-active', img.dataset.step === step);
+          });
+        });
+      },
+      {
+        root: null,
+        rootMargin: '-50% 0px -50% 0px',  // 🔑 center-based trigger
+        threshold: 0
+      }
+    );
 
 
-  steps.forEach(step => observer.observe(step));
-</script>
+    steps.forEach(step => observer.observe(step));
+  </script>
 
 
 
