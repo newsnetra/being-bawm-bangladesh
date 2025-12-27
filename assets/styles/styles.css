@@ -16,6 +16,7 @@
       margin: 0 auto;
     }
 
+   
 
     .header-bar {
       position: sticky;
@@ -321,41 +322,7 @@
       font-weight: normal;
     }
 
-    .quote-card {
-      background: #18a0fb;
-      aspect-ratio: 3/1;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      gap: 1.5rem;
-      padding: 3rem;
-      margin: 3% auto;
-    }
-
-    .quote-text {
-      max-width: 52ch;
-      margin: 0;
-      font-family: "chandler-42-regular";
-      font-size: clamp(1.1rem, 2.2vw, 2rem);
-      line-height: 1.35;
-      color: #fff;
-    }
-
-    .quote-attrib {
-      font-family: "lulo-one";
-      color: #f2c94c;
-
-    }
-
-    .quote-name {
-      letter-spacing: .12em;
-      font-weight: bold;
-    }
-
-    .quote-role {
-      letter-spacing: .06em;
-    }
-
+    
 
   
     /* ===== DESKTOP + TABLET (SCROLLY ON) ===== */
@@ -407,6 +374,81 @@
   line-height:1.6;
   max-width:42ch;
 }
+
+.photo-quote{
+  position: relative;
+  width: 100%;
+  max-height: 100vh;
+  overflow: hidden;
+  
+}
+
+/* Image */
+.photo-quote__img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Overlay container */
+.photo-quote__overlay{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: clamp(24px, 5vw, 64px);
+  max-width: 900px;
+}
+
+/* Quote text */
+.photo-quote__text{
+  font-family: "chandler-42-regular", serif;
+  font-size: clamp(16px, 2.2vw, 22px);
+  line-height: 1.4;
+  color: #ffffff;
+
+  max-width: 520px;
+  margin: 0 0 16px 0;
+
+  /* subtle contrast lift */
+  text-shadow: 0 2px 12px rgba(0,0,0,0.65);
+}
+
+/* Credit */
+.photo-quote__credit{
+  font-family: "chandler-42-regular", serif;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+.photo-quote__credit strong{
+  color: #f2c94c;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.photo-quote__caption {
+  font-family: "chandler-42-regular", serif;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: #ffffff;
+}
+
+/* Mobile refinement */
+@media (max-width: 600px){
+  .photo-quote__overlay{
+    padding: 20px;
+  }
+
+  .photo-quote__text{
+    max-width: 100%;
+  }
+}
+
 
 /* Optional: on tablet, stack but KEEP SCROLLY (image still swaps & stays sticky-ish) */
 @media (max-width:800px){
@@ -498,7 +540,7 @@
       --ink: rgba(255, 255, 255, .85);
       padding-left: 10%;
       box-sizing: border-box;
-      margin-bottom: 20px;
+      margin: 20px auto 40px auto;
     }
 
 
@@ -893,20 +935,20 @@
     }
 
     
-
-    .photo-prints{
+.photo-prints{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-  gap:clamp(20px,3vw,36px);
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:clamp(12px,2vw,20px);          /* tightened spacing */
   justify-items:center;
-  max-width:1200px;
+
+  max-width:900px;                  /* cap overall width */
   margin:clamp(32px,5vw,64px) auto;
 }
 
 /* Print wrapper */
 .photo-prints__item{
   margin:0;
-  width:200px;                     /* BASE PRINT SIZE */
+  width:200px;                      /* base print size */
   max-width:100%;
   transform-origin:center;
 }
@@ -918,7 +960,7 @@
   display:block;
 }
 
-/* Slants like the reference */
+/* Slants */
 .photo-prints__item:nth-child(1){ transform:rotate(-1.1deg); }
 .photo-prints__item:nth-child(2){ transform:rotate(0.8deg); }
 .photo-prints__item:nth-child(3){ transform:rotate(-0.6deg); }
@@ -928,10 +970,19 @@
 .photo-prints__item:nth-child(7){ transform:rotate(0.4deg); }
 .photo-prints__item:nth-child(8){ transform:rotate(-0.7deg); }
 
-/* Slight downscale on smaller screens */
+/* Trio layout: always one row */
+.photo-prints--trio{
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  gap: clamp(10px, 1.5vw, 16px);
+  max-width: 900px;
+}
+
+
+/* Responsive tightening */
 @media (max-width:900px){
-  .photo-prints__item{
-    width:200px;
+  .photo-prints{
+    gap:clamp(10px,2vw,16px);
   }
 }
 
@@ -946,6 +997,30 @@
     width:160px;
   }
 }
+
+
+/* Scale down cleanly on small screens */
+@media (max-width: 720px){
+  .photo-prints--trio{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .photo-prints--trio .photo-prints__item{
+    width: 160px;
+  }
+}
+
+@media (max-width: 480px){
+  .photo-prints--trio{
+    grid-template-columns: 1fr;
+  }
+
+  .photo-prints--trio .photo-prints__item{
+    width: 180px;
+  }
+}
+
+
 
 
 
