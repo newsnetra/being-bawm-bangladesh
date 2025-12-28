@@ -253,6 +253,7 @@
       text-align: center;
       color: #fff;
       line-height: 1.6;
+      line-height: normal; 
     }
 
 
@@ -267,26 +268,32 @@
 
     /* ---------- TITLE ---------- */
 
-    .hero-title {
-      font-family: var(--font-lulo-solid);
-      font-weight: bold;
-      font-size: 85px;
-      letter-spacing: normal;
 
-    }
+.hero-title{
+  font-family: var(--font-lulo-solid);
+  font-weight: 700;
+  font-size: 85px;
+  line-height: 0.95;
+  margin: 0;
+}
 
-    .hero-title .line {
-      display: block;
-      color: #f2c94c;
-    }
+.hero-title .line{
+  display: block;
+  line-height: 0.95;       /* lock each line */
+  min-height: 1em;         /* reserve space for the final font */
+  color: #f2c94c;
+}
 
-    .hero-title .outline {
-      display: block;
-      color: #f2c94c;
-      font-family: var(--font-lulo-outline);
-      font-weight: 700;
-      white-space: nowrap;
-    }
+
+.hero-title .outline{
+  display: block;
+  color: #f2c94c;
+  font-family: var(--font-lulo-outline);
+  font-weight: 700;
+  white-space: nowrap;
+  line-height: 0.95;
+  min-height: 1em;
+}
 
     /* ---------- DECK ---------- */
 
