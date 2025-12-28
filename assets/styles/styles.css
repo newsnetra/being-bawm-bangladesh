@@ -40,95 +40,83 @@
 
 
 
-    .header-bar {
-      position: sticky;
-      top: 0;
-      height: 35px;
-      width: 100%;
-      background: #f2c94c;
-      border-bottom: 1px solid #333;
-      z-index: 9999;
+    .header-bar{
+  position: sticky;
+  top: 0;
+  height: 35px;
+  width: 100%;
+  background: #f2c94c;
+  border-bottom: 1px solid #333;
+  z-index: 9999;
 
-      display: flex;
-      align-items: center;
-      /* true vertical centring */
-      justify-content: space-between;
-      /* left + right */
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    /* Left logo block */
-    .netra-logo {
-      margin-left: 20px;
-      height: 100%;
+/* Left logo block */
+.netra-logo{
+  margin-left: 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
 
-      display: flex;
-      align-items: center;
-    }
+.netra-logo a{
+  background: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  line-height: 1;
+}
 
-    .netra-logo a {
-      background: none;
-      display: flex;
-      align-items: center;
-      height: 100%;
-      line-height: 1;
-    }
+/* Reserve space immediately */
+.nav-logo{
+  height: 20px;
+  width: auto;
+  display: block;
+}
 
-    .nav-logo {
-      height: 20px;
-      display: block;
-      /* removes baseline offset */
-    }
+/* Right icons block — now a real list, fully reset */
+.social-icons{
+  margin-right: 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 
-    /* Right icons block */
-    .social-icons {
-      margin-right: 20px;
-      height: 100%;
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  /* keep right margin you already want */
+}
 
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
+/* Each icon cell has a fixed box so nothing reflows */
+.social-icons li{
+  display: flex;
+  align-items: center;
+}
 
-    /* Optional mobile variant kept consistent */
-    .social-icons-m {
-      margin-right: 20px;
-      margin-top: 20px;
+.social-icons a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
+  width: 28px;     /* fixed tap target + stable layout */
+  height: 28px;
+  line-height: 1;
+}
 
-    .twitter,
-    .facebook,
-    .twitter-share,
-    .facebook-share {
-      display: flex;
-      align-items: center;
-    }
+/* Fixed icon sizes (prevents late SVG sizing changes) */
+.twitter-logo,
+.fb-logo{
+  width: 20px;
+  height: 20px;
+  display: block;
+  color: #000;
+}
 
-    .twitter-share,
-    .facebook-share {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      line-height: 1;
-    }
-
-    .social-icons a {
-      display: flex;
-      align-items: center;
-      line-height: 1;
-    }
-
-    .twitter-logo,
-    .fb-logo {
-      height: 20px;
-      display: block;
-      /* removes baseline offset */
-      margin: 0 3px;
-      color: #000;
-    }
 
 
     section[aria-label="Story"] {
@@ -346,7 +334,7 @@
       max-width: none;
       margin: 0;
       align-items: start;
-      background: #f2c94c;
+      background: #000;
     }
 
     /* left 50vw */
@@ -1225,7 +1213,7 @@
         max-width: 48ch;
         padding: 12px 14px;
         margin: 0 16px;
-        background: rgba(242, 201, 76, 0.90);
+        background: #000;
         color: #fff;
       }
     }

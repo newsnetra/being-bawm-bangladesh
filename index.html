@@ -181,39 +181,38 @@
     <div class="header-bar">
       <div class="netra-logo">
         <a href="https://netra.news/tags/interactive/" target="_blank" title="Visit Netra News Interactive">
-          <img class="nav-logo" alt="Netra News Logo" src="./assets/images/netraintractvlogo.svg">
+          <img class="nav-logo"
+     alt="Netra News Logo"
+     src="./assets/images/netraintractvlogo.svg"
+     width="140"
+     height="20">
+
         </a>
       </div>
 
-      <div class="social-icons">
-        <div class="facebook">
-          <li class="facebook-share">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://interactive.netra.news/being-bawm-bangladesh/"
-              target="_blank" rel="noreferrer" class="svelte-1ouj9qo">
-              <svg viewBox="0 0 14 26" fill="none" preserveAspectRatio="xMidYMid meet" class="fb-logo"
-                style="color: #000;">
-                <path
-                  d="M13.2237 13.9747H8.82474V25.75H4.13073V13.9747H0V9.87083H4.18437V4.88177C4.18437 2.41406 6.00833 0 9.20026 0H13.5456V4.72083H10.6487C9.25391 4.72083 8.77109 4.88177 8.77109 6.06198V9.84401H13.7333L13.2237 13.9747Z"
-                  fill="currentColor"></path>
-              </svg>
-            </a>
-          </li>
-        </div>
+      <ul class="social-icons" aria-label="Share">
+  <li class="facebook-share">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://interactive.netra.news/being-bawm-bangladesh/"
+       target="_blank" rel="noreferrer" aria-label="Share on Facebook">
+      <svg viewBox="0 0 14 26" fill="none" preserveAspectRatio="xMidYMid meet" class="fb-logo">
+        <path d="M13.2237 13.9747H8.82474V25.75H4.13073V13.9747H0V9.87083H4.18437V4.88177C4.18437 2.41406 6.00833 0 9.20026 0H13.5456V4.72083H10.6487C9.25391 4.72083 8.77109 4.88177 8.77109 6.06198V9.84401H13.7333L13.2237 13.9747Z"
+              fill="currentColor"></path>
+      </svg>
+    </a>
+  </li>
 
-        <div class="twitter">
-          <li class="twitter-share">
-            <a href="https://twitter.com/intent/tweet?url=https://interactive.netra.news/being-bawm-bangladesh/"
-              target="_blank" rel="noreferrer" class="svelte-1ouj9qo">
-              <svg class="twitter-logo" data-icon="twitter" style="color: #000;" preserveAspectRatio="xMidYMid meet"
-                viewBox="0 0 24 24" fill="none">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M8.99079 12.1721L0 1H7.12135L12.6713 7.9051L18.6005 1.03109H22.5226L14.5676 10.2645L24 22H16.8999L10.8905 14.5326L4.47476 21.9793H0.531444L8.99079 12.1721ZM17.9348 19.93L4.36657 3.06999H6.08565L19.6368 19.93H17.9348Z"
-                  fill="currentColor"></path>
-              </svg>
-            </a>
-          </li>
-        </div>
-      </div>
+  <li class="twitter-share">
+    <a href="https://twitter.com/intent/tweet?url=https://interactive.netra.news/being-bawm-bangladesh/"
+       target="_blank" rel="noreferrer" aria-label="Share on X">
+      <svg class="twitter-logo" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M8.99079 12.1721L0 1H7.12135L12.6713 7.9051L18.6005 1.03109H22.5226L14.5676 10.2645L24 22H16.8999L10.8905 14.5326L4.47476 21.9793H0.531444L8.99079 12.1721ZM17.9348 19.93L4.36657 3.06999H6.08565L19.6368 19.93H17.9348Z"
+              fill="currentColor"></path>
+      </svg>
+    </a>
+  </li>
+</ul>
+
     </div>
 
     <section class="hero">
@@ -903,87 +902,161 @@
     </div>
   </footer>
 
+
+
   <script>
-    (() => {
-      const roots = document.querySelectorAll('.sldr');
-      if (!roots.length) return;
+(() => {
+  const roots = document.querySelectorAll('.sldr');
+  if (!roots.length) return;
 
-      roots.forEach((root) => {
-        const viewport = root.querySelector('.sldr__viewport');
-        const track = root.querySelector('.sldr__track');
-        const prevBtn = root.querySelector('.sldr__btn--prev');
-        const nextBtn = root.querySelector('.sldr__btn--next');
+  roots.forEach((root) => {
+    const viewport = root.querySelector('.sldr__viewport');
+    const track = root.querySelector('.sldr__track');
+    const prevBtn = root.querySelector('.sldr__btn--prev');
+    const nextBtn = root.querySelector('.sldr__btn--next');
+    if (!viewport || !track || !prevBtn || !nextBtn) return;
 
-        if (!viewport || !track || !prevBtn || !nextBtn) return;
+    const originals = Array.from(track.children);
+    const n = originals.length;
 
-        const originals = Array.from(track.children);
-        const n = originals.length;
+    // Clone first 2 slides for seamless looping (desktop shows 2)
+    const cloneCount = Math.min(2, n);
+    for (let i = 0; i < cloneCount; i++) {
+      const c = originals[i].cloneNode(true);
+      c.setAttribute('aria-hidden', 'true');
+      track.appendChild(c);
+    }
 
-        // clone first 2 slides for seamless looping (desktop shows 2)
-        const cloneCount = Math.min(2, n);
-        for (let i = 0; i < cloneCount; i++) {
-          const c = originals[i].cloneNode(true);
-          c.setAttribute('aria-hidden', 'true');
-          track.appendChild(c);
+    let index = 0;
+    let timer = null;
+    const AUTOPLAY_MS = 2200;
+
+    const slides = () => Array.from(track.children);
+
+    // Cached left offsets
+    let lefts = [];
+    let measured = false;
+
+    function measure() {
+      const s = slides();
+      // Read pass (layout read happens here, not inside scroll)
+      lefts = s.map(el => el.offsetLeft);
+      measured = lefts.length > 0;
+    }
+
+    function go(i, behavior = 'smooth') {
+      const s = slides();
+      const max = s.length - 1;
+      index = Math.max(0, Math.min(i, max));
+
+      // If measurement not ready yet, measure now once
+      if (!measured) measure();
+
+      const left = lefts[index];
+      if (typeof left !== 'number') return;
+
+      viewport.scrollTo({ left, behavior });
+    }
+
+    function next() { go(index + 1); }
+    function prev() { go(index - 1); }
+
+    function start() {
+      stop();
+      timer = setInterval(next, AUTOPLAY_MS);
+    }
+    function stop() {
+      if (timer) clearInterval(timer);
+      timer = null;
+    }
+
+    // rAF-throttle scroll handler
+    let rafId = 0;
+    viewport.addEventListener('scroll', () => {
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = 0;
+
+        // If we scrolled into clones, snap back to the real start
+        if (index >= n) {
+          index = 0;
+          if (!measured) measure();
+          viewport.scrollTo({ left: lefts[0] || 0, behavior: 'auto' });
         }
-
-        let index = 0;
-        let timer = null;
-        const AUTOPLAY_MS = 2200;
-
-        const slides = () => Array.from(track.children);
-
-        function go(i, behavior = 'smooth') {
-          const s = slides();
-          const clamped = Math.max(0, Math.min(i, s.length - 1));
-          index = clamped;
-          viewport.scrollTo({ left: s[index].offsetLeft, behavior });
-        }
-
-        function next() { go(index + 1); }
-        function prev() { go(index - 1); }
-
-        function start() {
-          stop();
-          timer = setInterval(next, AUTOPLAY_MS);
-        }
-        function stop() {
-          if (timer) clearInterval(timer);
-          timer = null;
-        }
-
-        viewport.addEventListener('scroll', () => {
-          const s = slides();
-          if (!s[index]) return;
-
-          if (index >= n) {
-            requestAnimationFrame(() => {
-              index = 0;
-              viewport.scrollTo({ left: s[index].offsetLeft, behavior: 'auto' });
-            });
-          }
-        }, { passive: true });
-
-        nextBtn.addEventListener('click', () => { stop(); next(); start(); });
-        prevBtn.addEventListener('click', () => { stop(); prev(); start(); });
-
-        viewport.addEventListener('keydown', (e) => {
-          if (e.key === 'ArrowRight') { e.preventDefault(); stop(); next(); start(); }
-          if (e.key === 'ArrowLeft') { e.preventDefault(); stop(); prev(); start(); }
-        });
-
-        root.addEventListener('mouseenter', stop);
-        root.addEventListener('mouseleave', start);
-        root.addEventListener('focusin', stop);
-        root.addEventListener('focusout', start);
-
-        window.addEventListener('resize', () => go(index, 'auto'));
-
-        go(0, 'auto');
-        start();
       });
-    })();
-  </script>
+    }, { passive: true });
+
+    nextBtn.addEventListener('click', () => { stop(); next(); start(); });
+    prevBtn.addEventListener('click', () => { stop(); prev(); start(); });
+
+    viewport.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); stop(); next(); start(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); stop(); prev(); start(); }
+    });
+
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+    root.addEventListener('focusin', stop);
+    root.addEventListener('focusout', start);
+
+    // Re-measure on resize (in rAF)
+    let resizeRaf = 0;
+    window.addEventListener('resize', () => {
+      if (resizeRaf) return;
+      resizeRaf = requestAnimationFrame(() => {
+        resizeRaf = 0;
+        measure();
+        go(index, 'auto');
+      });
+    });
+
+    // Re-measure once images inside this slider have loaded
+    const imgs = track.querySelectorAll('img');
+    let pending = 0;
+    imgs.forEach(img => {
+      if (img.complete) return;
+      pending++;
+      img.addEventListener('load', () => {
+        pending--;
+        if (pending <= 0) {
+          requestAnimationFrame(() => {
+            measure();
+            go(index, 'auto');
+          });
+        }
+      }, { once: true });
+    });
+
+    // Re-measure when track size changes (helps with font/image late layout)
+    if ('ResizeObserver' in window) {
+      const ro = new ResizeObserver(() => {
+        requestAnimationFrame(() => {
+          measure();
+          go(index, 'auto');
+        });
+      });
+      ro.observe(track);
+      ro.observe(viewport);
+    }
+
+    // Re-measure after fonts settle (Typekit can change metrics)
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        requestAnimationFrame(() => {
+          measure();
+          go(index, 'auto');
+        });
+      }).catch(() => {});
+    }
+
+    // Init
+    measure();
+    go(0, 'auto');
+    start();
+  });
+})();
+</script>
+
 
 
 
@@ -1158,33 +1231,45 @@
 
 
   <script>
-    const steps = document.querySelectorAll('.scrolly__step');
-    const images = document.querySelectorAll('.scrolly__img');
+(() => {
+  const steps = document.querySelectorAll('.scrolly__step');
+  const images = document.querySelectorAll('.scrolly__img');
+  if (!steps.length || !images.length) return;
 
-    // Safety: show first image
-    images.forEach((img, i) => img.classList.toggle('is-active', i === 0));
+  let activeStep = images[0]?.dataset.step;
 
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
+  // show first image
+  images.forEach((img, i) => img.classList.toggle('is-active', i === 0));
 
-          const step = entry.target.dataset.step;
-          images.forEach(img => {
-            img.classList.toggle('is-active', img.dataset.step === step);
-          });
-        });
-      },
-      {
-        root: null,
-        rootMargin: '-50% 0px -50% 0px',  // 🔑 center-based trigger
-        threshold: 0
+  const setActive = (step) => {
+    if (!step || step === activeStep) return;
+    activeStep = step;
+    images.forEach(img => {
+      const on = img.dataset.step === step;
+      if (img.classList.contains('is-active') !== on) {
+        img.classList.toggle('is-active', on);
       }
-    );
+    });
+  };
 
+  const observer = new IntersectionObserver((entries) => {
+    // pick the first intersecting entry; your rootMargin centres it
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        setActive(entry.target.dataset.step);
+        break;
+      }
+    }
+  }, {
+    root: null,
+    rootMargin: '-50% 0px -50% 0px',
+    threshold: 0
+  });
 
-    steps.forEach(step => observer.observe(step));
-  </script>
+  steps.forEach(step => observer.observe(step));
+})();
+</script>
+
 
 
 
