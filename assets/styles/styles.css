@@ -510,22 +510,7 @@
 
 
     /* minimal click icons */
-    .sldr__btn {
-      position: absolute;
-      top: 50%;
-      width: var(--btn);
-      height: var(--btn);
-      transform: translateY(-50%);
-      border: 0;
-      padding: 0;
-      cursor: pointer;
-      background: rgba(0, 0, 0, .35);
-      color: var(--ink);
-      display: grid;
-      place-items: center;
-      border-radius: 999px;
-      backdrop-filter: blur(6px);
-    }
+   
 
     .sldr__btn svg {
       width: 18px;
@@ -564,7 +549,7 @@
       width: 36px;
       height: 36px;
       border: 0;
-      background: rgba(0, 0, 0, .35);
+      background: #f2c94c;
       color: rgba(255, 255, 255, .9);
       display: grid;
       place-items: center;
