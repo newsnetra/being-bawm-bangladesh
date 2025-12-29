@@ -119,13 +119,18 @@ blockquote {
 }
 
 
+section[aria-label="Story"]:first-of-type p:first-child {
+  padding-top: 12%;
+}
 
 section[aria-label="Story"] {
   max-width: 618px;
   /* or any width you want */
   margin: 0 auto;
+
   /* center it */
 }
+
 
 
 
@@ -249,7 +254,7 @@ a:hover {
   position: absolute;
   left: 0;
   right: 0;
-  top: 30%;
+  top: 50%;
   z-index: 2;
   text-align: center;
   color: #fff;
@@ -302,7 +307,7 @@ a:hover {
 
 .hero-deck {
   max-width: 618px;
-  margin: 0 auto 1.5rem;
+  margin: 1.5rem auto;
   font-family: var(--font-chandler);
   font-size: 1rem;
   line-height: 1.55;
@@ -961,9 +966,12 @@ footer {
 
 @media (max-width: 1024px) {
 
-  section[aria-label="Story"] p:first-child {
-    padding-top: 20%;
-  }
+
+
+  section[aria-label="Story"]:first-of-type p:first-child {
+  padding-top: 35%;
+}
+
 
   .csv-table {
     width: 100vw;
@@ -1240,6 +1248,10 @@ footer {
   }
 
   h2 {margin: 20px 15px 15px}
+
+  section[aria-label="Story"]:first-of-type p:first-child {
+    padding-top: 25%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1254,9 +1266,10 @@ footer {
     width: 100vw;
   }
 
-  section[aria-label="Story"] p:first-child {
-    padding-top: unset;
+  section[aria-label="Story"]:first-of-type p:first-child {
+    padding-top: 9%;
   }
+  
 }
 
 
@@ -1268,6 +1281,8 @@ footer {
   .netra-logo {
     margin-left: 10px;
   }
+
+ 
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1287,7 +1302,11 @@ footer {
   }
 }
 
-
+@media (max-width:375px) {
+  section[aria-label="Story"]:first-of-type p:first-child {
+    padding-top: 20%;
+  }
+}
 
 /* Only keep a “hero” feel on wider layouts */
 @media (min-aspect-ratio: 4/5) {
