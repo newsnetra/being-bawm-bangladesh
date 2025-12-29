@@ -1306,7 +1306,7 @@ footer {
 
 @media (max-width:375px) {
   section[aria-label="Story"]:first-of-type p:first-child {
-    padding-top: 20%;
+    padding-top: 30%;
   }
 }
 
