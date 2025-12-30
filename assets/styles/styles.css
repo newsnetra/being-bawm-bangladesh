@@ -119,7 +119,7 @@ blockquote {
 }
 
 
-section[aria-label="Story"]:first-of-type p:first-child {
+section[aria-label="Story"]:first-child p:first-child {
   padding-top: 12%;
 }
 
@@ -968,7 +968,7 @@ footer {
    ========================================================= */
 
 @media (max-width: 1024px) {
-  section[aria-label="Story"]:first-of-type p:first-child {
+  section[aria-label="Story"]:first-child p:first-child {
     padding-top: 35%;
   }
 
@@ -992,7 +992,7 @@ footer {
 /* ≤ 900px */
 @media (max-width: 900px) {
 
-    section[aria-label="Story"]:first-of-type p:first-child {
+    section[aria-label="Story"]:first-child p:first-child {
     padding-top: 45%;
   }
   
@@ -1225,7 +1225,7 @@ footer {
     margin: 20px 15px 15px;
   }
 
-  section[aria-label="Story"]:first-of-type p:first-child {
+  section[aria-label="Story"]:first-child p:first-child {
     padding-top: 25%;
   }
 }
@@ -1243,14 +1243,14 @@ footer {
     width: 100vw;
   }
 
-    section[aria-label="Story"]:first-of-type p:first-child {
+    section[aria-label="Story"]:first-child p:first-child {
     padding-top: 50%;
   }
 
 }
 
 @media (max-width: 440px) {
-  section[aria-label="Story"]:first-of-type p:first-child {
+  section[aria-label="Story"]:first-child p:first-child {
     padding-top: 70%;
   }
 
