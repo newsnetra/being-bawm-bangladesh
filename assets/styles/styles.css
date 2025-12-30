@@ -990,21 +990,23 @@ footer {
 
 
 
-
-
-@media (max-width: 900px) {
-
-  section[aria-label="Story"]:first-of-type p:first-child {
-  padding-top: 45%;
-}
-
+/* Responsive tightening */
+@media (max-width:900px) {
   .photo-prints {
     gap: clamp(20px, 2vw, 16px);
   }
+}
 
-   .csv-table__swipe-hint {
+
+
+@media (min-width: 900px) {
+
+  .csv-table__swipe-hint {
     display: none;
   }
+}
+
+@media (max-width: 900px) {
 
   .csv-table__frame::before,
   .csv-table__frame::after {
