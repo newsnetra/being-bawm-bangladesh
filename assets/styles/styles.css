@@ -1001,6 +1001,10 @@ footer {
 
 @media (min-width: 900px) {
 
+  section[aria-label="Story"]:first-of-type p:first-child {
+    padding-top: 45%;
+  }
+
   .csv-table__swipe-hint {
     display: none;
   }
