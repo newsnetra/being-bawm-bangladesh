@@ -124,9 +124,6 @@ blockquote {
 }
 
 
-section[aria-label="Story"]:first-child p:first-child {
-  padding-top: 12%;
-}
 
 section[aria-label="Story"] {
   max-width: 618px;
