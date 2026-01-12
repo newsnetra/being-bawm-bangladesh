@@ -965,13 +965,16 @@ footer {
 
 
 
+
+
+
 /* =========================================================
    MEDIA QUERIES — organised by breakpoint (wide → narrow)
    ========================================================= */
 
 @media (max-width: 1024px) {
   section[aria-label="Story"]:first-child p:first-child {
-    padding-top: 25%;
+    padding-top: 35%;
   }
 
   .csv-table {
@@ -992,10 +995,10 @@ footer {
 }
 
 /* ≤ 900px */
-@media (max-width: 912px) {
+@media (max-width: 900px) {
 
     section[aria-label="Story"]:first-child p:first-child {
-    padding-top: 35%;
+    padding-top: 45%;
   }
   
   /* Responsive tightening */
@@ -1228,7 +1231,7 @@ footer {
   }
 
   section[aria-label="Story"]:first-child p:first-child {
-    padding-top: 15%;
+    padding-top: 25%;
   }
 }
 
@@ -1246,13 +1249,15 @@ footer {
   }
 
     section[aria-label="Story"]:first-child p:first-child {
-    padding-top: 30%;
+    padding-top: 50%;
   }
 
 }
 
 @media (max-width: 440px) {
- 
+  section[aria-label="Story"]:first-child p:first-child {
+    padding-top: 50%;
+  }
 
   .netra-logo {
     margin-left: 10px;
