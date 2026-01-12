@@ -1256,7 +1256,7 @@ footer {
 
 @media (max-width: 440px) {
   section[aria-label="Story"]:first-child p:first-child {
-    padding-top: 50%;
+    padding-top: 60%;
   }
 
   .netra-logo {
